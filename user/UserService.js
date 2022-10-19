@@ -35,8 +35,7 @@ module.exports = class UserService {
 
     static async updateUser(id, data) {
         try {
-            const user = this.getUserById(id);
-            const updated = await User.updateOne(data);
+            const updated = await User.findByIdAndUpdate(id, data);
             return updated;
         } catch (error) {
             console.log(error);
