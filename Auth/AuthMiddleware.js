@@ -21,8 +21,8 @@ module.exports = class AuthMiddleware {
                 res.sendStatus(403);
             }
             else
-                req.data=data;
-                next();
+                req.user = data;
+            next();
         });
     }
 }

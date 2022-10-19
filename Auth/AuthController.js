@@ -30,7 +30,6 @@ class AuthController {
                 const { email, password, id } = await UserService.findUserByEmail(req.body.email);
                 if (email === data.email && await argon.verify(password, data.password)) {
                     const user = { email: email, id: id };
-                    console.log(user);
                     const token = await AuthController.generateToken(user);
                     return res.json({ access_token: token });
                 }
